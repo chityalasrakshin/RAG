@@ -17,8 +17,7 @@ class RAGSearch:
             self.vectorstore.build_from_documents(docs)
         else:
             self.vectorstore.load()
-        groq_api_key = "PLACEHOLDER"
-        self.llm = ChatGroq(groq_api_key=groq_api_key, model_name=llm_model)
+        self.llm = ChatGroq(model_name=llm_model)
         print(f"[INFO] Groq LLM initialized: {llm_model}")
 
     def search_and_summarize(self, query: str, top_k: int = 5) -> str:
